@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Parent from "./Component/Parent";
+// import Message from './Component/Message';
+import "./App.css";
+import counterContext from "./CreateContext";
 
 function App() {
+  // let [count , setCount ] = useState(0)
+  // let [isMorning , setisMorning] = useState(true)+
+  let counter = useState(25);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <counterContext.Provider value={counter}>
+      <div>
+        <Parent />
+      </div>
+    </counterContext.Provider>
+
+    // <div className={`Box ${isMorning ? 'dayLight' : 'nightLight'}`}>
+    //     <h1>Good {isMorning ? "Morning" : "Night"}</h1>
+    //     <button onClick={() => {setisMorning(!isMorning)}}>Update Day</button>
+    //   <button onClick={() => {setCount(count + 1)}}>Addition</button>
+    //   <Message counter={count}/>
+    //  <button onClick={() => {setCount(count - 1)}}>Subtraction</button>
+    // </div>
   );
 }
 
