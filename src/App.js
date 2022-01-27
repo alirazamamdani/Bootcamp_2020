@@ -2,18 +2,20 @@ import React, { useState } from "react";
 import Parent from "./Component/Parent";
 // import Message from './Component/Message';
 import "./App.css";
-import counterContext from "./CreateContext";
+import CounterContext from "./CreateContext";
 
 function App() {
-  // let [count , setCount ] = useState(0)
+  // let [name , setName ] = useState("")
+  
   // let [isMorning , setisMorning] = useState(true)+
-  let counter = useState(25);
+  let counter = useState(0);
   return (
-    <counterContext.Provider value={counter}>
+    <CounterContext.Provider value={counter}>
       <div>
         <Parent />
+        {/* <input type="text" name="" onChange={(e) => setName(e.target.value)} id="" /> */}
       </div>
-    </counterContext.Provider>
+    </CounterContext.Provider>
 
     // <div className={`Box ${isMorning ? 'dayLight' : 'nightLight'}`}>
     //     <h1>Good {isMorning ? "Morning" : "Night"}</h1>
